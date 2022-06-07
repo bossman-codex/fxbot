@@ -53,14 +53,18 @@ bot.start(async (ctx) => {
            client.lPush('id', `${chatId}`)
         }
 })
-// bot.command('quit', (ctx) => {
-//     const chatId = ctx.message.chat.id
-//          client.lRem('id', `${chatId}`)
-//          ctx.leaveChat()
-// })
+
+bot.hears(/\/stop/, async (ctx) => {
+     const result = await client.lRange('id', 0, -1)
+    const chatId = ctx.message.chat.id
+    if ((result.includes(chatId.toString()) )) {
+           client.lRem('id', 0,  `${chatId}`)
+        }
+     ctx.reply("Bot stopped, to continue recieving updates, type /start")
+})
 
 bot.launch()
 
-app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${process.env.PORT}`);
+app.listen(80, () => {
+    console.log(`Listening on port 80`);
 });
