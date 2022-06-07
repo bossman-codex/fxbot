@@ -5,7 +5,6 @@ const redis = require('redis');
 const axios = require('axios');
 const express = require('express');
 const app = express();
-const port = 80;
 require("dotenv").config()
 
 const client = redis.createClient({
@@ -57,6 +56,6 @@ bot.start(async (ctx) => {
 
 bot.launch()
 
-app.listen(port || process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${port}`);
 });
