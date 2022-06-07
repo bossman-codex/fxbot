@@ -55,7 +55,7 @@ bot.start(async (ctx) => {
 })
 bot.command('quit', (ctx) => {
     const chatId = ctx.message.chat.id
-         client.lRem('id', `${chatId}`)
+         client.lrem('id', `${chatId}`)
          ctx.leaveChat()
 })
 
