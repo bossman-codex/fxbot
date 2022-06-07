@@ -57,5 +57,5 @@ bot.start(async (ctx) => {
 bot.launch()
 
 app.listen(process.env.PORT, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(`Listening on port ${process.env.PORT}`);
 });
