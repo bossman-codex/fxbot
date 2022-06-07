@@ -53,6 +53,11 @@ bot.start(async (ctx) => {
            client.lPush('id', `${chatId}`)
         }
 })
+bot.command('quit', (ctx) => {
+    const chatId = ctx.message.chat.id
+         client.lRem('id', `${chatId}`)
+         ctx.leaveChat()
+})
 
 bot.launch()
 
