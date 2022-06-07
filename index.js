@@ -32,21 +32,22 @@ client.on('connect', function () {
 const bot = new Telegraf(Token)
 
 // * 8 * * *
-cron.schedule('*/30 * * * * *',
+cron.schedule('* 8 * * *',
       async function () {
-           const result = await client.lRange('id', 0, -1)
-           const text = await scrapeData(data);
+        const result = await client.lRange('id', 0, -1)
+        const text = await scrapeData(data);
         result.forEach(async (element) => {
-            try {
-            await axios.post(`${url}${Token}/sendMessage`,
+          try {
+             await axios.post(`${url}${Token}/sendMessage`,
           {
               chat_id: element,
               text: text
           })
-            } catch (error) {
-              console.log(error)
-            }
-
+          }
+          catch (error) {
+            console.log("blocked user");
+          }
+           
             })
     })
 

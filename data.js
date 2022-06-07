@@ -2,7 +2,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 
-
 async function scrapeData(url) {
   try {
     const unsortedArray = [];
@@ -33,8 +32,8 @@ async function scrapeData(url) {
       objectKey.forEach((key, i) => (objects[key] = groupedArray[index][i]));
       currencyConversion.push(objects);
     }
-    const arrayAsString = [];
-   for (let index = 0; index < currencyConversion.length; index++) {
+    var arrayAsString = [];
+    for (let index = 0; index < currencyConversion.length; index++) {
       const objectAsString = `${objectKey[1]}: ${currencyConversion[index].Currency} \n ${objectKey[2]}: ${currencyConversion[index].Selling} \n ${objectKey[3]}: ${currencyConversion[index].Buying} \n`;
       arrayAsString.push(objectAsString);
     }
