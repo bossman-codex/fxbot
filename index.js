@@ -8,7 +8,7 @@ const app = express();
 require("dotenv").config()
 
 const client = redis.createClient({
-  url: process.env.REDIS_URL,
+  url: process.env.REDIS_TLS_URL,
   socket: {
     tls: true,
     rejectUnauthorized: false
