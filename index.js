@@ -65,6 +65,6 @@ bot.hears(/\/stop/, async (ctx) => {
 
 bot.launch()
 
-app.listen(80, () => {
-    console.log(`Listening on port 80`);
+app.listen(process.env.PORT, () => {
+    console.log(`Listening on port ${process.env.PORT}`);
 });
