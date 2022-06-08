@@ -59,7 +59,8 @@ bot.start(async (ctx) => {
     const chatId = ctx.message.chat.id
     if ((result.includes(chatId.toString()) ) == false) {
            client.lPush('id', `${chatId}`)
-        }
+  }
+  ctx.reply("Hi, I'm foreignExchange bot.I'll send you the Rates daily by 2:30pm")
 })
 
 bot.hears(/\/stop/, async (ctx) => {
