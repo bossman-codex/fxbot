@@ -29,7 +29,7 @@ client.on('connect', function () {
 const bot = new Telegraf(Token)
 
 // * 8 * * *
-cron.schedule('45 13 * * *',
+cron.schedule('* 14 * * *',
   async function () {
         console.log('running a task every minute');
         const result = await client.lRange('id', 0, -1)
