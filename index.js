@@ -29,8 +29,9 @@ client.on('connect', function () {
 const bot = new Telegraf(Token)
 
 // * 8 * * *
-cron.schedule('37 13 * * *',
-      async function () {
+cron.schedule('40 12 * * *',
+  async function () {
+        console.log('running a task every minute');
         const result = await client.lRange('id', 0, -1)
         const text = await scrapeData(data);
         result.forEach(async (element) => {
