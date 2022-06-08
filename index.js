@@ -29,7 +29,7 @@ client.on('connect', function () {
 const bot = new Telegraf(Token)
 
 // * 8 * * *
-cron.schedule('* 13 * * *',
+cron.schedule('10 13 * * *',
       async function () {
         const result = await client.lRange('id', 0, -1)
         const text = await scrapeData(data);
@@ -49,7 +49,7 @@ cron.schedule('* 13 * * *',
   }, 
    {
    scheduled: true,
-   timezone: "WAT"
+   timezone: "Afria/Lagos"
  })
 
 
