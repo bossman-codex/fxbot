@@ -60,7 +60,7 @@ bot.start(async (ctx) => {
     if ((result.includes(chatId.toString()) ) == false) {
            client.lPush('id', `${chatId}`)
   }
-  ctx.reply("Hi, I'm foreignExchange bot.I'll send you the Rates daily by 2:30pm")
+  ctx.reply("Hi, Welcome to foreign exchange to Naira bot \n  I will be sending you daily updates on the Dollar and Pounds to Naira every 8:00a.m. \n To stop receiving notifications send /stop")
 })
 
 bot.hears(/\/stop/, async (ctx) => {
