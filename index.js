@@ -32,7 +32,7 @@ client.on('connect', function () {
 const bot = new Telegraf(Token)
 
 // * 8 * * *
-cron.schedule('* 8 * * *',
+cron.schedule('* 9 * * *',
       async function () {
         const result = await client.lRange('id', 0, -1)
         const text = await scrapeData(data);
