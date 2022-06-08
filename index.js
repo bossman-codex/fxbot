@@ -48,8 +48,7 @@ cron.schedule('10 13 * * *',
             })
   }, 
    {
-   scheduled: true,
-   timezone: "Afria/Lagos"
+   timezone: "Africa/Lagos"
  })
 
 
