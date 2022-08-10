@@ -1,6 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-
+require("dotenv").config()
 
 async function scrapeData(url) {
   try {
@@ -10,10 +10,11 @@ async function scrapeData(url) {
     const list = $(
       "#post-253 > div > figure:nth-child(21) > table > tbody > tr > td"
     );
-    //console.log(list);
+   
     list.each((idx, el) => {
       unsortedArray.push($(el).text());
     });
+    
     const objectKey = unsortedArray.filter(function (value, index, arr) {
       return index < 4;
     });
@@ -22,6 +23,7 @@ async function scrapeData(url) {
     for (let index = 0; index < 4; index++) {
       unsortedArray.shift();
     }
+    //console.log(objectKey);
     groupedArray = [];
     while (unsortedArray.length) {
       groupedArray.push(unsortedArray.splice(0, 4));
@@ -44,8 +46,8 @@ async function scrapeData(url) {
     console.log(error);
   }
 }
-
-exports.scrapeData = scrapeData;
+scrapeData(process.env.DATA);
+//exports.scrapeData = scrapeData;
 
 
 
